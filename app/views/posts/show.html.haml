@@ -1,6 +1,9 @@
 #post_content
 	%h1= @post.title
 	%p= @post.content
+	%p
+		%small 
+			Tags: #{raw @post.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ')}
 
 	#comments
 		%h2

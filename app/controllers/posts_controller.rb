@@ -4,9 +4,11 @@ class PostsController < ApplicationController
 
 	def index
 		@posts = Post.all.order("created_at DESC")
+		params[:tag] ? @posts = Post.tagged_with(params[:tag]) : @posts = Post.all
 	end
 
 	def show
+		@post = Post.find(params[:id])
 	end
 
 	def new
@@ -46,6 +48,6 @@ class PostsController < ApplicationController
 	end
 
 	def post_params
-		params.require(:post).permit(:title, :content)
+		params.require(:post).permit(:title, :content, :tag_list, :tag, { tag_ids: [] }, :tag_ids)
 	end
 end

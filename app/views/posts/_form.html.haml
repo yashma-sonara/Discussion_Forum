@@ -1,4 +1,5 @@
 = simple_form_for @post do |f|
   = f.input :title
   = f.input :content
+  = f.input :tag_ids, as: :select, collection: Tag.order(:name), label_method: :name, input_html: {multiple: true}
   = f.submit

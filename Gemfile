@@ -1,4 +1,5 @@
 source "https://rubygems.org"
+
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.3"
@@ -75,4 +76,10 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+end
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.3.3' 
+  # add the line below
+  gem 'rails-assets-chosen'
 end

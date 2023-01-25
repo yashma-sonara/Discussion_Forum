@@ -2,6 +2,10 @@
  - @posts.each do |post|
   .post
    %h2.title= link_to post.title, post
+   %p
+    %small
+    Tags: #{raw post.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ')}
+    %p= link_to "Read Post", post_path(post)
    %p.date
     Published at
     = time_ago_in_words(post.created_at)
