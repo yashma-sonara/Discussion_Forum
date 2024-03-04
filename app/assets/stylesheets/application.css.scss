@@ -2,11 +2,10 @@ body {
     font-family: 'Lato', sans-serif;
     background-image: url("Background.jpg");
     background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-position: center top
-    ;
+    background-size: cover; /* Update this line */
+    background-position: center top;
     color: white;
-    background-color:  rgba(0, 0, 0, 0.2)
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 .wrapper {
