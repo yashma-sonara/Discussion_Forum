@@ -1,5 +1,7 @@
-= simple_form_for @post do |f|
-  = f.input :title
-  = f.input :content
-  = f.input :tag_ids, as: :select, collection: Tag.order(:name), label_method: :name, input_html: {multiple: true}
-  = f.submit
+= simple_form_for @post, html: { class: 'post-form' } do |f|
+  .form-inputs
+    = f.input :title, input_html: { class: 'form-control' }
+    = f.input :content, input_html: { class: 'form-control' }
+    = f.input :tag_ids, as: :select, collection: Tag.order(:name), label_method: :name, input_html: { class: 'form-control', multiple: true }
+  .form-actions
+    = f.submit 'Submit', class: 'btn btn-primary'
