@@ -1,23 +1,26 @@
 #post_content
-	%h1= @post.title
-	%p= @post.content
-	%p
-		%small 
-			Tags: #{raw @post.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ')}
+  %h1= @post.title
+  %p= @post.content
+  %p
+    %small 
+      Tags: #{raw @post.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ')}
 
-	#comments
-		%h2
-			= @post.comments.count
-			Comments
-		= render @post.comments
+  #comments
+    %h2
+      = @post.comments.count
+      Comments
+    = render @post.comments
 
-		%h3 Reply to thread
-		= render "comments/form"
+    %h3 Reply to thread
+    = render "comments/form"
 
-	%br/
-	%hr/
-	%br/
+  %br/
+  %hr/
+  %br/
 
-	= link_to "Edit", edit_post_path(@post), class: "button"
-	= link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure you want to do this?" }, class: "button"      
-                                                      
+  = link_to "Edit", edit_post_path(@post), class: 'btn btn-primary'
+  = link_to "Delete", delete_post_path(@post), method: :delete, data: { confirm: "Are you sure you want to do this?" }, class: 'btn btn-primary'
+  - if @post.persisted?
+    = link_to "Cancel", post_path(@post), class: 'btn btn-secondary'
+  - else
+    = link_to "Cancel", posts_path, class: 'btn btn-secondary'

@@ -5,3 +5,7 @@
     = f.input :tag_ids, as: :select, collection: Tag.order(:name), label_method: :name, input_html: { class: 'form-control', multiple: true }
   .form-actions
     = f.submit 'Submit', class: 'btn btn-primary'
+    - if @post.persisted?
+      = link_to "Cancel", post_path(@post), class: 'btn btn-secondary'
+    - else
+      = link_to "Cancel", posts_path, class: 'btn btn-secondary'
