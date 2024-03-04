@@ -36,11 +36,20 @@ class PostsController < ApplicationController
 		end
 	end
 
+	def delete 
+	end 
+	
 	def destroy
+		puts "hh"
 		@post = Post.find(params[:id])
-		@post.destroy
-		redirect_to root_path
+		puts "Destroy action triggered for post with ID: #{params[:id]}"
+		if @post.destroy
+			redirect_to @root_path
+		else 
+			render 'delete'
+		end
 	end
+
 	private
 
 	def find_post

@@ -1,174 +1,162 @@
+/* Global styles */
 body {
     font-family: 'Lato', sans-serif;
     background-image: url("Background.jpg");
     background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-position: center top
-    ;
+    background-size: cover; /* Cover the entire viewport */
+    background-position: center top;
     color: white;
-    background-color:  rgba(0, 0, 0, 0.2)
+    background-color: rgba(0, 0, 0, 0.2);
+    background-attachment: fixed; /* Fix the background image in place */
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        background-size: contain; /* Adjust background size for smaller screens */
+    }
 }
 
 .wrapper {
-   width: 60%;
-   max-width: 1140px;
-   margin: 0 auto;
-   color: black;
-   background: rgba(255, 255, 255, 0.5);
+    width: 60%;
+    
+    margin: 0 auto;
+    color: black;
+    background: rgba(255, 255, 255, 0.7);
 }
 
 .clearfix:before, .clearfix:after {
-   content: " ";
-   display: table;
-   background-color: rgba(0, 0, 0, 0.2);
+    content: " ";
+    display: table;
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 .clearfix:after {
-   clear: both;
+    clear: both;
 }
 
 .main_header {
-   width: 100%;
-   margin: 0 auto;
-   background: red;
-   #logo {
-       float: left;
-       a {
-           text-transform: uppercase;
-           font-weight: 700;
-           font-family: fantasy;
-           letter-spacing: 1px;
-           font-size: 1.8rem;
-           text-decoration: none;
-           color:white;
-       }
-   }
-   #buttons {
-       float: right;
-       a {
-           line-height: 60px;
-           background: rgb(255, 255, 255);
-           padding: .5em 1em;
-           border-radius: 0.2em;
-           color: red;
-           text-decoration: none;
-           font-weight: 100;
-       }
-   }
+    width: 100%;
+    margin: 0 auto;
+    background: red;
 }
 
+.main_header #logo {
+    float: left;
+}
 
+.main_header #logo a {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-family: fantasy;
+    letter-spacing: 1px;
+    font-size: 1.8rem;
+    text-decoration: none;
+    color: white;
+}
 
+.main_header #buttons {
+    float: right;
+}
+
+.main_header #buttons a {
+    line-height: 60px;
+    background: rgb(255, 255, 255);
+    padding: 0.5em 1em;
+    border-radius: 0.2em;
+    color: red;
+    text-decoration: none;
+    font-weight: 100;
+}
+
+/* Post styles */
 #posts {
-    background: rgba(0, 0, 0, 0.2);
-   padding: 2em 5%;
-   border-radius: .5em;
-   .post {
-       margin: 1em 0;
-       padding: 1em 0;
-       border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-       .title {
-           margin: 0;
-           a {
-               color: #00ddff;
-               text-decoration: none;
-               font-weight: 100;
-               font-size: 1.25rem;
-           }
-       }
-       .date {
-           margin-top: .25rem;
-           font-size: 0.9rem;
-           color: #f4f4f4;
-       }
-   }
+    background: rgba(0, 0, 0, 0.1);
+    padding: 2em 5%;
+    border-radius: 0.5em;
 }
 
-.button {
-   color: #397CAC;
-   border: 1px solid #397CAC;
-   padding: .5em 1em;
-   border-radius: 0.2em;
-   text-decoration: none;
-   margin-right: 2%;
+#posts .post {
+    margin: 1em 0;
+    padding: 1em 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
+#posts .post .title a {
+    color: #14373d;
+    text-decoration: none;
+    font-weight: 100;
+    font-size: 1.25rem;
+}
+
+#posts .post .date {
+    margin-top: 0.25rem;
+    font-size: 0.7rem;
+    color: #14373d;
+}
+
+/* Create post section styles */
 #post_content {
-    background: rgba(0, 0, 0, 0.2);
-   padding: 2em 5%;
-   border-radius: .5em;
-   h1 {
-       font-weight: 100;
-       font-size: 2em;
-       color: #397CAC;
-       margin-top: 0;
-   }
-   p {
-       color: #B2BAC2;
-       font-size: 0.9rem;
-       font-weight: 100;
-       line-height: 1.5;
-   }
-   #comments {
-       .comment {
-           border-bottom: 1px solid #d1d1d1;
-           padding-bottom: 1em;
-           margin-bottom: 1em;
-           color: black;
-           
-           .content {
-               width: 75%;
-               float: left;
-               color:black;
-               
-           }
-           .buttons {
-               width: 25%;
-               float: left;
-               font-size: .8em;
-               text-align: right;
-               padding-top: 1.5em;
-               a {
-                   color: #397CAC;
-                   border: 1px solid #397CAC;
-                   padding: .5em 1em;
-                   border-radius: 0.2em;
-                   text-decoration: none;
-                   margin-right: 2%;
-               }
-           }
-           .comment_content {
-               margin: 0;
-               padding: 0;
-               
-           }
-           
-           .comment_author {
-               color: #397CAC;
-               margin-top: .5rem;
-               font-size: 0.6em;
-               font-weight: 700;
-           }
-       }
-       input[type="submit"] {
-           background: #397CAC;
-           border: none;
-           color: black;
-           font-weight: 100;
-           padding: .5em 1em;
-           border-radius: .2em;
-       }
-       textarea {
-           width: 100%;
-           min-height: 200px;
-           border: 1px solid #d1d1d1;
-           border-radius: .2em;
-           margin: 1em 0;
-           color:black;
-       }
-   }
+    background: rgba(0, 0, 0, 0.1);
+    
+    border-radius: 0.5em;
 }
-#post_tag_ids {
-    color:black;
-   }
 
+#post_content h1 {
+    font-weight: 100;
+    font-size: 2em;
+    color: #397CAC;
+    margin-top: 0;
+}
+
+#post_content p {
+    color: #010305;
+    font-size: 0.9rem;
+    font-weight: 100;
+    line-height: 1.5;
+}
+
+#post_content textarea {
+    width: 100%;
+    min-height: 200px;
+    border: 1px solid #d1d1d1;
+    border-radius: 0.2em;
+    
+    color: black;
+}
+
+#post_content input[type="submit"] {
+    background: #397CAC;
+    border: none;
+    color: black;
+    font-weight: 100;
+    padding: 0.5em 1em;
+    border-radius: 0.2em;
+    cursor: pointer;
+}
+
+#post_tag_ids {
+    color: black;
+}
+
+/* Custom form styles */
+.post-form .form-control {
+    width: 100%;
+    padding: 0rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+  }
+  
+  .post-form .btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+  }
+  
+  .post-form .btn:hover {
+    background-color: #0056b3;
+  }
+  
