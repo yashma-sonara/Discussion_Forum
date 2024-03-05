@@ -2,6 +2,7 @@
 
 This project is a Forum Website with CRUD features build in Ruby on Rails. 
 
+<img width="500" alt="Ui-main" src="https://github.com/yashma-sonara/Discussion_Forum/assets/44407952/4858dc21-2f5f-4ba8-9441-345a9404993e">
 
 
 
