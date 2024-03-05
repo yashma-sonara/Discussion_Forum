@@ -34,7 +34,12 @@ bundle install
 rails db:setup
 ```
 
-5. Start the rails server
+5. Rebuild Assets
+```
+rails assets:precompile
+```
+
+6. Start the rails server
 ```
 rails server
 ```
