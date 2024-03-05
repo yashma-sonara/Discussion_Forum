@@ -2,6 +2,11 @@
 
 This project is a Forum Website with CRUD features build in Ruby on Rails. 
 
+
+Video Walkthrough: https://youtu.be/5SeAdC8F5aY
+
+
+
 <div style="display: flex; justify-content: space-between;">
   <img width="400" alt="Ui-main" src="https://github.com/yashma-sonara/Discussion_Forum/assets/44407952/dcf13a3e-9940-41ba-9311-967a0769fb51" style="margin-right: 20px;">
   <img width="400" alt="Ui-signup" src="https://github.com/yashma-sonara/Discussion_Forum/assets/44407952/1ba3d799-abe8-4bd4-a158-3916e8b10400" style="margin-right: 10px;">
