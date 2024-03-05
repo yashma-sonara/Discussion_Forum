@@ -36,8 +36,7 @@ class PostsController < ApplicationController
 		end
 	end
 
-	def delete 
-	end 
+	
 	
 	def destroy
 		puts "hh"
@@ -50,9 +49,20 @@ class PostsController < ApplicationController
 		end
 	end
 
+	def delete
+		@post = Post.find(params[:id])
+		if @post.destroy
+		  redirect_to root_path, notice: 'Post was successfully deleted.'
+		else
+		  redirect_to root_path, alert: 'Failed to delete post.'
+		end
+	  end
+	  
+
 	private
 
 	def find_post
+		puts "ff"
 		@post = Post.find(params[:id])
 	end
 

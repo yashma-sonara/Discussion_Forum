@@ -28,11 +28,16 @@ class CommentsController < ApplicationController
 			render 'edit'
 		end
 	end
+	def delete
+		@comment = Comment.find(params[:id])
+		@comment.destroy
+		redirect_to post_path(@comment.post), notice: 'Comment was successfully deleted.'
+	end
+	
 
 	def destroy
-		@post = Post.find(params[:post_id])
-		@comment = @post.comments.find(params[:id])
+		@comment = Comment.find(params[:id])
 		@comment.destroy
-		redirect_to post_path(@post)
+		redirect_to post_path(@comment.post), notice: 'Comment was successfully deleted.'
 	end
 end
