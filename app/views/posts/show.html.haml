@@ -18,8 +18,9 @@
   %hr/
   %br/
 
-  = link_to "Edit", edit_post_path(@post), class: 'btn btn-primary'
-  = link_to "Delete", delete_post_path(@post), method: :get, data: { confirm: "Are you sure you want to do this?" }, class: 'btn btn-primary'
+  - if current_user == @post.user
+    = link_to "Edit", edit_post_path(@post), class: 'btn btn-primary'
+    = link_to "Delete", delete_post_path(@post), method: :get, data: { confirm: "Are you sure you want to do this?" }, class: 'btn btn-primary'
   - if @post.persisted?
     = link_to "Cancel", root_path, class: 'btn btn-secondary'
   - else

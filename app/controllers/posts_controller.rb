@@ -29,34 +29,40 @@ class PostsController < ApplicationController
 	end
 
 	def update
-		if @post.update(post_params)
-			redirect_to @post
-		else
-			render 'edit'
-		end
+		if current_user == @post.user
+			if @post.update(post_params)
+				redirect_to @post
+			else
+				render 'edit'
+			end
+		  else 
+			redirect_to @post, alert: 'You are not authorized to edit this post.'
+		  end
 	end
 
 	
 	
 	def destroy
-		puts "hh"
-		@post = Post.find(params[:id])
-		puts "Destroy action triggered for post with ID: #{params[:id]}"
-		if @post.destroy
-			redirect_to @root_path
-		else 
-			render 'delete'
+		
+
+		if current_user == @post.user
+			@post.destroy
+			redirect_to @root_path, notice: 'Post was successfully deleted.'
+		  else
+			redirect_to @root_path, alert: 'You are not authorized to delete this post.'
 		end
 	end
 
 	def delete
 		@post = Post.find(params[:id])
-		if @post.destroy
-		  redirect_to root_path, notice: 'Post was successfully deleted.'
-		else
-		  redirect_to root_path, alert: 'Failed to delete post.'
+		
+		if current_user == @post.user
+			@post.destroy
+			redirect_to root_path, notice: 'Post was successfully deleted.'
+		  else
+			redirect_to root_path, alert: 'You are not authorized to delete this post.'
 		end
-	  end
+	end
 	  
 
 	private
